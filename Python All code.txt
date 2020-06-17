@@ -1,0 +1,176 @@
+﻿================================================================
+Give Limit To string
+
+text = 'PEP8 has some maximum line length guidelines, starting with “Limit alould be limited to 72 characters.”'
+text = text[:10]+'...'
+print(text)  
+
+ans = PEP8 has s...
+================================================================
+
+Substring in Python
+
+s1 = "hello python world , i'm a beginner "
+s2 = "world"
+s3 = s1[s1.index(s2) + len(s2):]
+print (s3)
+
+================================================================
+Only Substring
+
+s = 'gfgfdAAA1234ZZZuijjk'
+new = s.split('AAA')[1]
+print(new)
+
+output = 1234ZZZuijjk
+==================================================================
+
+Remove final character from string (Python)
+
+st =  "abcdefghij"
+st = st[:-1]
+
+==================================================================
+Python String replace() Method
+
+txt "I like bananas"
+x = txt.replace("bananas", "apples")
+print(x)
+
+=============================================================================================================
+URL RUN AT BACKGROUND
+
+import urllib.request
+import urllib.parse
+
+url = "https://www.google.com"
+user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36'
+headers = {'User-Agent': user_agent , }
+request = urllib.request.Request(url, None , headers)
+response = urllib.request.urlopen(request)
+htmldata = response.read().decode('utf-8')
+print(htmldata)
+
+=================================================================================================================
+
+Use Selenium To Open URL
+
+from selenium import webdriver
+from selenium.webdriver.support.ui import Select
+chromedriver = "E:/Software/chromedriver"
+browser = webdriver.Chrome(chromedriver)
+browser.get('http://www.tenders.tn.gov.in')
+browser.set_window_size(1024 , 600)
+browser.maximize_window()
+
+========================================================================================================================
+
+Get href from table
+
+List_href = []
+Collect_href = browser.find_elements_by_xpath('//*[@id="MasterGC_ContentBlockHolder_dgResultado"]//a[@href]')
+for i in range(len(Collect_href)):
+  	List_href.append(Collect_href[i].get_attribute('href')) #  append On Empty list
+
+===========================================================================================================================
+
+Using Regex Substring Remove
+
+import re 
+your_text ="asfjavgavaaa123zzzrfsjnxjgfk"
+
+try:
+    v = re.search(r"(?<=AAA).*?(?=ZZZ)", your_text).group(0)
+    print(v)
+except:
+    v='blank'
+    print(v)
+
+substring and Remove = v = re.search(r"(?<=AAA).*?(?=ZZZ)", your_text).group(0)
+Substring = v = re.search(r"(?<=AAA).*", your_text).group(0)
+Remove = v = re.search(r".*?(?=ZZZ)", your_text).group(0)
+
+=================================================================================================================================
+
+Substring Remove without regex
+
+your_text ="asfjavgavAAA123ZZZrfsjnxjgfk"
+
+Substring and Remove = v = your_text.partition("AAA")[2].partition("ZZZ")[0]    OUTPUT = 123
+Substring = v = v = your_text.partition("AAA")[2]    OUTPUT = 123ZZZrfsjnxjgfk
+Remove = v = v = your_text.partition("AAA")[0]	     OUTPUT = asfjavgav
+
+==================================================================================================================================
+
+decode url 
+
+1st method
+
+from six.moves.html_parser import HTMLParser
+
+h = HTMLParser()
+encodedStr = 'https://www.guatecompras.gt/compradores/consultaDetEnt.aspx?iEnt=338&amp;iUnt=0&amp;iTipo=6'
+url = h.unescape(encodedStr)
+print(url)
+
+2nd method
+
+from bs4 import BeautifulSoup
+
+encodedStr = 'https://www.guatecompras.gt/compradores/consultaDetEnt.aspx?iEnt=338&amp;iUnt=0&amp;iTipo=6'
+Entity_name_url = BeautifulSoup(str(encodedStr),convertEntities=BeautifulSoup.HTML_ENTITIES)
+print(Entity_name_url)
+
+======================================================================================================================================
+
+HTML Special Chart Convert
+
+import html
+
+get_htmlSource = " <p>I will display &euro;</p>\<p>I will display &#8364;</p>\<p>I will display &#x20AC;</p>\&#9829;"
+get_htmlSource = html.unescape(str(get_htmlSource))
+print(get_htmlSource)
+
+Output :  <p>I will display €</p><p>I will display €</p><p>I will display €</p>♥
+
+============================================================================================================================================
+
+Generate Random Number
+
+import random
+
+r1 = random.randint(0, 10)
+print("Random number between 0 and 10 is % s" % (r1))
+
+Output : Random number between 0 and 10 is 5
+
+==============================================================================================================================================
+
+MessageBox using WxPython
+
+import wx
+
+app = wx.App()
+wx.MessageBox('Pythonspot wxWidgets demo', 'Info', wx.OK | wx.ICON_INFORMATION)
+
+Python Compiler(Check Result) :   "https://www.onlinegdb.com/online_python_compiler"
+
+==============================================================================================================================================
+
+Email Regex
+
+import re
+Email_List = []
+get_website_outerHTML = 'email mktgkal@gmail.com 32dsivbkjvbbbiubiusa'
+Email_regex = re.findall("([a-zA-Z0-9_.+-]+@[a-zA-Z0-9_.+-]+\.[a-zA-Z]+)", get_website_outerHTML)
+print('Email Regex Through Found Email: ', Email_regex)
+
+for EMail in Email_regex:
+    Extension = ['.jpeg', '.png','.io','.xls','xyz.com','.doc','.jpeg','.pdf','.gif','.jpg','example','facebook','test@','test','amazon','naukri','wikipedia','tenders','tender']
+    if not any(x in EMail for x in Extension):
+        if EMail not in Email_List:
+            Email_List.append(EMail)
+
+Output = Email Regex Through Found Email:  ['mktgkal@gmail.com']
+
+======================================================================================================================================================
